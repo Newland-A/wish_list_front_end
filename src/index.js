@@ -1,107 +1,93 @@
-// API.addWishList()
-// API.addWishItem()
 document.addEventListener("DOMContentLoaded",function(){
-  addWishList()
-  addWishItem()
-  document.getElementById('form').addEventListener('submit', addWishList())
+  API.addWishList()
+  API.addWishItem()
+  document.getElementById('new-form').addEventListener('submit', API.addNewList
+)
+  document.getElementById('new-form').addEventListener('submit', API.addYourList
+)
 })
-
+// Main URL AND QUERIES
 const BASE_URL = "http://localhost:3000"
 const WISHLIST_URL = `${BASE_URL}/wish_lists`
 const WISHITEM_URL = `${BASE_URL}/wish_items`
-const items_container = document.getElementById('wish-items-container')
+const itemsContainer = document.getElementById('wish-items-container')
+const listsContainer = document.getElementById('wish-list-container')
 
-function addWishList() {
-      fetch(WISHLIST_URL)
-      .then(resp => resp.json())
-      .then(json => console.log(json))
-      // .then(wish_lists => {
-        // renderWishList(wish_lists)
-        // wish_lists.forEach(wish_list => {
-        //   const { id, name, item_count, delivery_date } = wish_list
-        //   new WishList(id, name, item_count, delivery_date )
-        // })
-      // })
-    }
+const personContainer = document.getElementById('person-container')
+
+// Appended Elements
+let createNew = document.createElement('h3')
+createNew.innerHTML = "Create a New List"
+personContainer.appendChild(createNew)
   
-  function addWishItem() {
-      fetch(WISHITEM_URL)
-      .then(resp => resp.json())
-      .then(wish_items => {
-        wish_items.forEach(wish_item => {
-          const { id, name, color, height, weight, link, description, price, wish_list_id } = wish_item
-          new WishItem(id, name, color, height, weight, link, description, price, wish_list_id)
-        })
-      })
-  } 
+let wlh3 = document.createElement('h3')
+wlh3.innerHTML = "Here are some premade Lists"
+listsContainer.appendChild(wlh3)
 
-  function renderWishItems() {
-    const itemCard = document.createElement('div')
-    itemCard.classList.add('item-card')
-    itemCard.id = this.id
-    itemCard.innerHTML += this.itemHTML()
+let wih2 = document.createElement('h2')
+wih2.id = "item-title"
+wih2.innerHTML = "Here are some available wish items"
+itemsContainer.appendChild(wih2)
+
+let newWishList = document.getElementById('new-form')
+let submitBtn = document.getElementById('submit')
+
+const yourLists = document.createElement('div')
+yourLists.id = "your-lists"
+listsContainer.appendChild(yourLists)
+
+const preMadeList = document.createElement('div')
+preMadeList.id = "premade-mist"
+listsContainer.appendChild(preMadeList)
+
+// Div element for your lists
+
+// FUNCTIONS
+function formHtml(list_title) {
+    return `
+    <p>List Title: ${list_title}</p>
+    <input type="text" name="name" id="item_name"placeholder="Name Your Item" />
+    <input type="text" name="color" id="item_color" placeholder="What color is it?" />
+    <input type="text" name="height" id="item_height" placeholder="How tall is it?" />
+    <input type="text" name="weight" id="item_weight" placeholder="How much does it weigh?" />
+    <input type="text" name="link" id="item_link" placeholder="Link to a picture of it" />
+    <input type="text" name="description" id="item_description" placeholder="Write a description of the Wish" />
+    <input type="text" name="price" id="item_price" placeholder="How much does it cost?" />
+    <button class="add_item" id="add_item">Add Item To List</button>
+    `
   }
 
-  // function renderWishList(wish_lists) {
-  //   let wishListContainer = document.getElementById('wish-list-container')
+function renderNestedForm(title) {
+  
+  const nestedForm = document.createElement('form')
+ 
+  nestedForm.classList.add('nested-form')
+  nestedForm.id = this.id
+  nestedForm.innerHTML += this.formHtml(title)
+  newWishList.appendChild(nestedForm)
+
+}
 
 
-  //   let addBtn = document.createElement('button')
-  //   addBtn.setAttribute('wish-list-id', `${wish_lists.id}`)
-  //   addBtn.innerText = "Add Wish List"
-  //   addBtn.addEventListener('click', (event) => {
-  //   event.preventDefault()
-  //     if (wish_lists.lists.length === 0 ) {
-  //       addWishList(event)
-  //     } else {
-  //       console.log("You don't have any Wish Lists!")
-  //     }
-  //   })
+function yourListHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price) {
+  return `
+  <a href="wish_lists/${list_id}"><h2 class="list-header">${list_title}</h2></a>
+  <p id="yl">Name: ${item_name}</p>
+  <p id="yl">Color: ${item_color}</p>
+  <p id="yl">Height: ${item_height}</p>
+  <p id="yl">Weight: ${item_weight}</p>
+  <o id="yl">Link: ${item_link}</p>
+  <p id="yl">Description: ${item_description}</p>
+  <p id="yl">Price: ${item_price}</p>
+  <button class="delete">DELETE ME???</button>
+  `
+}
 
-  //   let ul = document.createElement('ul')
-
-  //     for(const list of wish_lists ) {
-  //       let li = document.createElement('li')
-  //       li.innerText = `${list.name} - ${list.delivery_date}`
-  //       ul.appendChild(li)
-  //     }
-
-    
-  //   divCard.setAttribute('class', 'card')
-  //   divCard.setAttribute('list-id', `${wish_lists.id}`)
-  //   divCard.appendChild(addBtn, ul)
-  //   wishListContainer.appendChild(divCard)
-  //   return divCard
-  // }
-
-  // function addWishList(e) {
-  //   e.preventDefault()
-  //   let list = {
-  //     'name': e.target.name.value,
-  //     'item_count': e.target.item_count.value,
-  //     'wish_item_attributes': [{
-  //       'name': e.target.name.value,
-  //       'color': e.target.color.value,
-  //       'height': e.target.height.value,
-  //       'link': e.target.weight.value,
-  //       'description': e.target.description.value,
-  //       'price': e.target.price.value,
-    
-  //     }]
-  //   };
-  //   fetch(WISHLIST_URL, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(list)
-  //   })
-  //   .then(resp => resp.json())
-  //   .then(wish_lists => {
-  //     const { id, name, item_count, delivery_date } = wish_lists
-  //     new WishList(id, name, item_count, delivery_date )
-  //     document.getElementById('new-form').reset()
-  //     })
-  // }
-
+function renderYourList() {
+  const yourListCard = document.createElement('div')
+  yourListCard.classList.add('your-list-card')
+  yourListCard.id = "your-list-card"
+  yourListCard.innerHTML += this.yourListHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price)
+  yourLists.appendChild(yourListCard)
+}
   
