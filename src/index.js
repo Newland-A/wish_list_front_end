@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded",function(){
   API.addWishList()
   API.addWishItem()
-  document.getElementById('new-form').addEventListener('submit', API.addNewList
+  document.getElementById('new-list-form').addEventListener('submit', API.addNewList
 )
-  document.getElementById('new-form').addEventListener('submit', API.addYourList
+  document.getElementById('new-list-form').addEventListener('submit', API.addYourWishItems
 )
 })
+
+
 // Main URL AND QUERIES
 const BASE_URL = "http://localhost:3000"
 const WISHLIST_URL = `${BASE_URL}/wish_lists`
@@ -14,6 +16,8 @@ const itemsContainer = document.getElementById('wish-items-container')
 const listsContainer = document.getElementById('wish-list-container')
 
 const personContainer = document.getElementById('person-container')
+
+
 
 // Appended Elements
 let createNew = document.createElement('h3')
@@ -29,7 +33,7 @@ wih2.id = "item-title"
 wih2.innerHTML = "Here are some available wish items"
 itemsContainer.appendChild(wih2)
 
-let newWishList = document.getElementById('new-form')
+let newWishList = document.getElementById('new-list-form')
 let submitBtn = document.getElementById('submit')
 
 const yourLists = document.createElement('div')
@@ -37,39 +41,44 @@ yourLists.id = "your-lists"
 listsContainer.appendChild(yourLists)
 
 const preMadeList = document.createElement('div')
-preMadeList.id = "premade-mist"
+preMadeList.id = "premade-list"
 listsContainer.appendChild(preMadeList)
+
+
 
 // Div element for your lists
 
 // FUNCTIONS
-function formHtml(list_title) {
+function newListFormHtml(id, list_title) {
     return `
-    <p>List Title: ${list_title}</p>
-    <input type="text" name="name" id="item_name"placeholder="Name Your Item" />
-    <input type="text" name="color" id="item_color" placeholder="What color is it?" />
-    <input type="text" name="height" id="item_height" placeholder="How tall is it?" />
-    <input type="text" name="weight" id="item_weight" placeholder="How much does it weigh?" />
-    <input type="text" name="link" id="item_link" placeholder="Link to a picture of it" />
-    <input type="text" name="description" id="item_description" placeholder="Write a description of the Wish" />
-    <input type="text" name="price" id="item_price" placeholder="How much does it cost?" />
-    <button class="add_item" id="add_item">Add Item To List</button>
+    <div data-id="${id}">
+      <p>List Title: ${list_title}</p>
+      <input type="text" name="name" id="item_name"placeholder="Name Your Item" />
+      <input type="text" name="color" id="item_color" placeholder="What color is it?" />
+      <input type="text" name="height" id="item_height" placeholder="How tall is it?" />
+      <input type="text" name="weight" id="item_weight" placeholder="How much does it weigh?" />
+      <input type="text" name="link" id="item_link" placeholder="Link to a picture of it" />
+      <input type="text" name="description" id="item_description" placeholder="Write a description of the Wish" />
+      <input type="text" name="price" id="item_price" placeholder="How much does it cost?" />
+      <button class="add_item" id="add_item">Add Item To List</button>
+    </div>
     `
   }
 
-function renderNestedForm(title) {
+function renderNestedForm(id, title) {
   
   const nestedForm = document.createElement('form')
  
   nestedForm.classList.add('nested-form')
   nestedForm.id = this.id
-  nestedForm.innerHTML += this.formHtml(title)
+  nestedForm.innerHTML += this.newListFormHtml(id, title)
   newWishList.appendChild(nestedForm)
 
 }
 
+// Your list Items
 
-function yourListHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price) {
+function yourListItemHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price) {
   return `
   <a href="wish_lists/${list_id}"><h2 class="list-header">${list_title}</h2></a>
   <p id="yl">Name: ${item_name}</p>
@@ -83,11 +92,11 @@ function yourListHtml(list_id, list_title, item_name, item_color, item_height, i
   `
 }
 
-function renderYourList() {
+function renderYourItemList() {
   const yourListCard = document.createElement('div')
   yourListCard.classList.add('your-list-card')
   yourListCard.id = "your-list-card"
-  yourListCard.innerHTML += this.yourListHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price)
+  yourListCard.innerHTML += this.yourListItemHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price)
   yourLists.appendChild(yourListCard)
 }
   
