@@ -1,5 +1,6 @@
 class WishList {
-  constructor(title, item_count = 1, delivery_date = "December 25, 2020" ){
+  constructor(id, title = "Wish List", item_count = 1, delivery_date = "December 25, 2020" ){
+    this.id = id
     this.title = title
     this.item_count = item_count
     this.delivery_date = delivery_date
@@ -8,22 +9,22 @@ class WishList {
 
   listHtml() {
     return `
-    <a href="wish_lists/${this.id}"><h2 class="list-header">${this.title}</h2></a>
+    <a href="wish_lists/${this.id}"><h2 class="header">${this.title}</h2></a>
     <p>Item Count: ${this.item_count}</p>
     <p>Delivery Date: ${this.delivery_date}</p>
-    <button class="random_list" id="random_list">Use This Ready Wish List</button>
+    <button class="new_list" id="new_list">Use This Ready Wish List</button>
     `
   }
 
   renderWishLists() {
     const listCard = document.createElement('div')
     listCard.classList.add('list-card')
-    listCard.id = "list-card"
+    listCard.id = this.id
     listCard.innerHTML += this.listHtml()
     preMadeList.appendChild(listCard)
-    // listCard.addEventListener('click', e => {
-    //   // if (e.target.className.includes('new_list')) this.newList(e)
-    // })
+    listCard.addEventListener('click', e => {
+      // if (e.target.className.includes('new_list')) this.newList(e)
+    })
   }
 
 
