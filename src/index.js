@@ -14,7 +14,7 @@ const WISHLIST_URL = `${BASE_URL}/wish_lists`
 const WISHITEM_URL = `${BASE_URL}/wish_items`
 const itemsContainer = document.getElementById('wish-items-container')
 const listsContainer = document.getElementById('wish-list-container')
-
+const yourListContainer = document.getElementById('your-list-container')
 const personContainer = document.getElementById('person-container')
 
 
@@ -36,9 +36,10 @@ itemsContainer.appendChild(wih2)
 let newWishList = document.getElementById('new-list-form')
 let submitBtn = document.getElementById('submit')
 
+
 const yourLists = document.createElement('div')
 yourLists.id = "your-lists"
-listsContainer.appendChild(yourLists)
+yourListContainer.appendChild(yourLists)
 
 const preMadeList = document.createElement('div')
 preMadeList.id = "premade-list"
