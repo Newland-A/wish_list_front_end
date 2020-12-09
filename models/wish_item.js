@@ -17,7 +17,7 @@ class WishItem {
     <a href="wish_items/${this.id}"><h2 class="header">${this.name}</h2></a>
     <img src="${this.link}" width="100" />
     <p>Color: ${this.color}</p>
-    <p>Height: ${this.height} </p>
+    <p>Height: ${this.height} inchs </p>
     <p>Weight: ${this.weight} lbs</p>
     <p>Link: ${this.link}</p>
     <p>Description: ${this.description}</p>
