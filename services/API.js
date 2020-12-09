@@ -1,4 +1,6 @@
 class API {
+
+  // Wish List
   static addWishList() {
     fetch('http://localhost:3000/wish_lists')
     .then(resp => resp.json())
@@ -28,12 +30,12 @@ class API {
       const { id, title} = wish_lists
       // debugger
       new WishList(id, title )
-      renderNestedForm(title)
+      renderNestedForm(id, title)
       document.getElementById('new-form').reset()
       })
   }
 
- 
+//  Wish Items
   static addWishItem() {
     fetch('http://localhost:3000/wish_items')
     .then(resp => resp.json())
@@ -45,7 +47,8 @@ class API {
     })
   } 
 
-  static addYourList(e) {
+  static addYourWishItems(e) {
+    debugger
     e.preventDefault()
     let list_item = {
       'title': e.target.title.value,
@@ -69,14 +72,27 @@ class API {
     })
     .then(resp => resp.json())
     .then( wish_items => {
-        debugger
-        const {name, color, height, link, description, price} = wish_items
         // debugger
-        new WishItem(name, color, height, weight, link, description, price)
-        renderYourList(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price)
+        const {id, name, color, height, weight, link, description, price} = wish_items
+        // debugger
+        new WishItem(id, name, color, height, weight, link, description, price)
+        
+        renderYourItemList(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price)
         document.getElementById('nested-form').reset()
         })  
   }
+
+
+
+
+
+
+
+
+
+
+
+
   // function addItem(e) {
   //   e.preventDefault()
   //   let item = {
