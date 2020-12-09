@@ -1,6 +1,7 @@
 class API {
 
   // Wish List
+// fetching information Read
   static addWishList() {
     fetch('http://localhost:3000/wish_lists')
     .then(resp => resp.json())
@@ -12,7 +13,7 @@ class API {
     })
   }
 
-
+// posting form to the dom and grabbing the attributes inputs, clearing form after submission
  static addNewList(e) {
     e.preventDefault()
     let list = {
@@ -31,12 +32,14 @@ class API {
       // debugger
       new WishList(id, title )
       renderNestedForm(id, title)
+      document.getElementById('nested-form').addEventListener('submit', API.addYourWishItems)
       document.getElementById('new-form').reset()
       })
   }
 
 //  Wish Items
-  static addWishItem() {
+// fetching items
+static addWishItem() {
     fetch('http://localhost:3000/wish_items')
     .then(resp => resp.json())
     .then(wish_items => {
@@ -46,24 +49,26 @@ class API {
       })
     })
   } 
-
+// rendering the 
   static addYourWishItems(e) {
-    debugger
+    // debugger
     e.preventDefault()
     let list_item = {
-      'title': e.target.title.value,
-      'wish_item_attributes': [{
+      // 'title': e.target.title.value,
+      // 'wish_item_attributes': [{
         'name': e.target.name.value,
         'color': e.target.color.value,
         'height': e.target.height.value,
         'weight': e.target.weight.value,
         'link': e.target.weight.value,
         'description': e.target.description.value,
-        'price': e.target.price.value
+        'price': e.target.price.value,
+        'wish_list_id': e.target.dataset.id
           
-            }]
+            // }]
     };
-    fetch(WISHLIST_URL, {
+    // debugger
+    fetch(WISHITEM_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -71,14 +76,15 @@ class API {
       body: JSON.stringify(list_item)
     })
     .then(resp => resp.json())
-    .then( wish_items => {
+    .then( list_items => {
         // debugger
-        const {id, name, color, height, weight, link, description, price} = wish_items
+        const {id, name, color, height, weight, link, description, price } = list_items
         // debugger
         new WishItem(id, name, color, height, weight, link, description, price)
         
-        renderYourItemList(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price)
-        document.getElementById('nested-form').reset()
+        renderYourItemList(list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price)
+        
+        // document.getElementById('nested-form').reset()
         })  
   }
 
