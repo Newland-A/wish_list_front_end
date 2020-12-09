@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded",function(){
   API.addWishItem()
   document.getElementById('new-list-form').addEventListener('submit', API.addNewList
 )
-  document.getElementById('new-list-form').addEventListener('submit', API.addYourWishItems
-)
+  
+
 })
 
 
@@ -13,13 +13,16 @@ const BASE_URL = "http://localhost:3000"
 const WISHLIST_URL = `${BASE_URL}/wish_lists`
 const WISHITEM_URL = `${BASE_URL}/wish_items`
 const itemsContainer = document.getElementById('wish-items-container')
-const listsContainer = document.getElementById('wish-list-container')
 const yourListContainer = document.getElementById('your-list-container')
+const listsContainer = document.getElementById('wish-list-container') 
 const personContainer = document.getElementById('person-container')
-
-
+const bodyTag = document.querySelector('body')
 
 // Appended Elements
+// let wishHeader = document.createElement("h1")
+// wishHeader.innerText += "*** Christmas Wish List Organizer ***"
+// bodyTag.appendChild(wishHeader)
+
 let createNew = document.createElement('h3')
 createNew.innerHTML = "Create a New List"
 personContainer.appendChild(createNew)
@@ -36,11 +39,6 @@ itemsContainer.appendChild(wih2)
 let newWishList = document.getElementById('new-list-form')
 let submitBtn = document.getElementById('submit')
 
-
-const yourLists = document.createElement('div')
-yourLists.id = "your-lists"
-yourListContainer.appendChild(yourLists)
-
 const preMadeList = document.createElement('div')
 preMadeList.id = "premade-list"
 listsContainer.appendChild(preMadeList)
@@ -50,9 +48,9 @@ listsContainer.appendChild(preMadeList)
 // Div element for your lists
 
 // FUNCTIONS
-function newListFormHtml(id, list_title) {
+function nestedFormHtml(id, list_title) {
     return `
-    <div data-id="${id}">
+    
       <p>List Title: ${list_title}</p>
       <input type="text" name="name" id="item_name"placeholder="Name Your Item" />
       <input type="text" name="color" id="item_color" placeholder="What color is it?" />
@@ -61,18 +59,19 @@ function newListFormHtml(id, list_title) {
       <input type="text" name="link" id="item_link" placeholder="Link to a picture of it" />
       <input type="text" name="description" id="item_description" placeholder="Write a description of the Wish" />
       <input type="text" name="price" id="item_price" placeholder="How much does it cost?" />
-      <button class="add_item" id="add_item">Add Item To List</button>
-    </div>
+      <button id="submit">Add Item To List</button>
+    
     `
   }
 
-function renderNestedForm(id, title) {
+function renderNestedForm(list_id, title) {
   
   const nestedForm = document.createElement('form')
  
   nestedForm.classList.add('nested-form')
-  nestedForm.id = this.id
-  nestedForm.innerHTML += this.newListFormHtml(id, title)
+  nestedForm.id = "nested-form"
+  nestedForm.dataset.id = list_id
+  nestedForm.innerHTML += this.nestedFormHtml(list_id, title)
   newWishList.appendChild(nestedForm)
 
 }
@@ -98,6 +97,8 @@ function renderYourItemList() {
   yourListCard.classList.add('your-list-card')
   yourListCard.id = "your-list-card"
   yourListCard.innerHTML += this.yourListItemHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price)
-  yourLists.appendChild(yourListCard)
-}
+  yourListContainer.appendChild(yourListCard)
   
+}
+
+// document.getElementById('nested-form').addEventListener('submit', API.addYourWishItems)
