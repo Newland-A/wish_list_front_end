@@ -1,53 +1,90 @@
 document.addEventListener("DOMContentLoaded",function(){
-  API.addWishList()
-  API.addWishItem()
-  document.getElementById('new-list-form').addEventListener('submit', API.addNewList
-)
+  API.readList()
+  API.readItem()
   
+  document.getElementById('new-list-form').addEventListener('submit', API.createList
+)
 
 })
-
 
 // Main URL AND QUERIES
 const BASE_URL = "http://localhost:3000"
 const WISHLIST_URL = `${BASE_URL}/wish_lists`
 const WISHITEM_URL = `${BASE_URL}/wish_items`
-const itemsContainer = document.getElementById('wish-items-container')
-const yourListContainer = document.getElementById('your-list-container')
-const listsContainer = document.getElementById('wish-list-container') 
-const personContainer = document.getElementById('person-container')
+
+// Top of DOM
 const bodyTag = document.querySelector('body')
+const topDiv = document.createElement('div')
+bodyTag.appendChild(topDiv)
+const pageTitle = document.createElement('h1')
+pageTitle.id = "page-title"
+pageTitle.innerHTML = "Wish List Organizer"
+topDiv.appendChild(pageTitle)
 
-// Appended Elements
-// let wishHeader = document.createElement("h1")
-// wishHeader.innerText += "*** Christmas Wish List Organizer ***"
-// bodyTag.appendChild(wishHeader)
+// formcontatiner append to topDiv
+const formContainer = document.createElement('div')
+topDiv.appendChild(formContainer)
 
-let createNew = document.createElement('h3')
-createNew.innerHTML = "Create a New List"
-personContainer.appendChild(createNew)
+// create form element append to topDiv formContainer
+const formH2 = document.createElement('h2')
+formH2.innerText = "Create New List"
+formContainer.appendChild(formH2)
+
+const form = document.createElement('form')
+form.id = 'new-list-form'
+form.innerHTML += `
+<input name='title' id="title-of-wish-list" placeholder="Name Your Wish List!"/>
+<button id="submit">New Wishes</button>
+`
+formContainer.appendChild(form)
+
+// function to call to render form to the page
+
+
+// create container for form once created
+const listDiv = document.createElement('div')
+listDiv.id = 'wish-list-container'
+const listsContainer = document.getElementById('wish-list-container')
+
+// append title to list container
+let wlh2 = document.createElement('h2')
+wlh2.innerHTML += "Wish Lists"
+// listsContainer.appendChild(wlh2)
+
+
+// ORIGNINAL MVP BELOW
+
+// const itemsContainer = document.getElementById('wish-items-container')
+// const yourListContainer = document.getElementById('your-list-container')
+ 
+// const personContainer = document.getElementById('person-container')
+
+
+// // Appended Elements
+
+// let createNew = document.createElement('h3')
+// createNew.innerHTML = "Create a New List"
+// personContainer.appendChild(createNew)
   
-let wlh3 = document.createElement('h3')
-wlh3.innerHTML = "Here are some premade Lists"
-listsContainer.appendChild(wlh3)
 
-let wih2 = document.createElement('h2')
-wih2.id = "item-title"
-wih2.innerHTML = "Here are some available wish items"
-itemsContainer.appendChild(wih2)
+// let wih2 = document.createElement('h2')
+// wih2.id = "item-title"
+// wih2.innerHTML = "Here are some available wish items"
+// itemsContainer.appendChild(wih2)
 
-let newWishList = document.getElementById('new-list-form')
-let submitBtn = document.getElementById('submit')
+// let newWishList = document.getElementById('new-list-form')
+// let submitBtn = document.getElementById('submit')
 
-const preMadeList = document.createElement('div')
-preMadeList.id = "premade-list"
-listsContainer.appendChild(preMadeList)
+// const preMadeList = document.createElement('div')
+// preMadeList.id = "premade-list"
+// listsContainer.appendChild(preMadeList)
 
 
 
-// Div element for your lists
-
-// FUNCTIONS
+// // Div element for your lists
+// // Yes the id needs to be here
+// // FUNCTIONS
+// // create function for the html 
 function nestedFormHtml(id, list_title) {
     return `
     
@@ -76,29 +113,27 @@ function renderNestedForm(list_id, title) {
 
 }
 
-// Your list Items
+// // Your list Items
 
-function yourListItemHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price) {
-  return `
-  <a href="wish_lists/${list_id}"><h2 class="list-header">${list_title}</h2></a>
-  <p id="yl">Name: ${item_name}</p>
-  <p id="yl">Color: ${item_color}</p>
-  <p id="yl">Height: ${item_height}</p>
-  <p id="yl">Weight: ${item_weight}</p>
-  <o id="yl">Link: ${item_link}</p>
-  <p id="yl">Description: ${item_description}</p>
-  <p id="yl">Price: ${item_price}</p>
-  <button class="delete">DELETE ME???</button>
-  `
-}
+// function yourListItemHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price) {
+//   return `
+//   <a href="wish_lists/${list_id}"><h2 class="list-header">${list_title}</h2></a>
+//   <p id="yl">Name: ${item_name}</p>
+//   <p id="yl">Color: ${item_color}</p>
+//   <p id="yl">Height: ${item_height}</p>
+//   <p id="yl">Weight: ${item_weight}</p>
+//   <o id="yl">Link: ${item_link}</p>
+//   <p id="yl">Description: ${item_description}</p>
+//   <p id="yl">Price: ${item_price}</p>
+//   <button class="delete">DELETE ME???</button>
+//   `
+// }
 
-function renderYourItemList() {
-  const yourListCard = document.createElement('div')
-  yourListCard.classList.add('your-list-card')
-  yourListCard.id = "your-list-card"
-  yourListCard.innerHTML += this.yourListItemHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price)
-  yourListContainer.appendChild(yourListCard)
+// function renderYourItemList() {
+//   const yourListCard = document.createElement('div')
+//   yourListCard.classList.add('your-list-card')
+//   yourListCard.id = "your-list-card"
+//   yourListCard.innerHTML += this.yourListItemHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price)
+//   yourListContainer.appendChild(yourListCard)
   
-}
-
-// document.getElementById('nested-form').addEventListener('submit', API.addYourWishItems)
+// }
