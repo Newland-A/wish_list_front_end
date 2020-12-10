@@ -2,7 +2,8 @@ class API {
 
   // Wish List
 // fetching information Read
-  static addWishList() {
+  static readList() {
+    // static addList() {
     fetch('http://localhost:3000/wish_lists')
     .then(resp => resp.json())
     .then(wish_lists => {
@@ -14,7 +15,9 @@ class API {
   }
 
 // posting form to the dom and grabbing the attributes inputs, clearing form after submission
- static addNewList(e) {
+
+  static createList(e) {
+  //  static addNewList(e) {
     e.preventDefault()
     let list = {
       'title': e.target.title.value,
@@ -32,14 +35,17 @@ class API {
       // debugger
       new WishList(id, title )
       renderNestedForm(id, title)
-      document.getElementById('nested-form').addEventListener('submit', API.addYourWishItems)
-      document.getElementById('new-form').reset()
+      document.getElementById('nested-form').addEventListener('submit', //API.addYourWishItems
+      API.createItems
+      )
+      document.getElementById('nested-form').reset()
       })
   }
 
 //  Wish Items
 // fetching items
-static addWishItem() {
+static readItem() {
+// static addWishItem() {
     fetch('http://localhost:3000/wish_items')
     .then(resp => resp.json())
     .then(wish_items => {
@@ -50,7 +56,8 @@ static addWishItem() {
     })
   } 
 // rendering the 
-  static addYourWishItems(e) {
+  static createItems(e) {
+  // static addYourWishItems(e) {
     // debugger
     e.preventDefault()
     let list_item = {
@@ -84,49 +91,8 @@ static addWishItem() {
         
         renderYourItemList(list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price)
         
-        // document.getElementById('nested-form').reset()
+        document.getElementById('nested-form').reset()
         })  
   }
-
-
-
-
-
-
-
-
-
-
-
-
-  // function addItem(e) {
-  //   e.preventDefault()
-  //   let item = {
-  //     'name': e.target.name.value,
-  //     'item_count': e.target.item_count.value,
-  //     'wish_item_attributes': [{
-  //       'name': e.target.name.value,
-  //       'color': e.target.color.value,
-  //       'height': e.target.height.value,
-  //       'link': e.target.weight.value,
-  //       'description': e.target.description.value,
-  //       'price': e.target.price.value,
-    
-  //     }]
-  //   };
-  //   fetch(WISHLIST_URL, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(list)
-  //   })
-  //   .then(resp => resp.json())
-  //   .then(wish_lists => {
-  //     const { id, name, item_count, delivery_date } = wish_lists
-  //     new WishList(id, name, item_count, delivery_date )
-  //     document.getElementById('new-form').reset()
-  //     })
-  // }
 
 }
