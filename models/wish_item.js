@@ -9,7 +9,8 @@ class WishItem {
     this.description = description
     this.price = price
     this.wish_list_id = wish_list_id
-    this.renderWishItems()
+    // this.renderWishItems()
+    this.renderItems()
   }
 
   itemHTML() {
@@ -22,13 +23,16 @@ class WishItem {
     <p>Link: ${this.link}</p>
     <p>Description: ${this.description}</p>
     <p>Price: $${this.price}.00</p>
+    <p>Wish list id: ${this.wish_list_id}</p>
     <button class="add_item" id="add_item">Add Item To List</button>
     `
   }
 
-  renderWishItems() {
+  renderItems(item_id) {
+    // renderWishItems(item_id) {
     const itemCard = document.createElement('div')
     itemCard.classList.add('item-card')
+    itemCard.dataset.id = item_id
     itemCard.id = this.id
     itemCard.innerHTML += this.itemHTML()
     itemsContainer.appendChild(itemCard)
