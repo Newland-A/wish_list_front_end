@@ -4,7 +4,8 @@ class WishList {
     this.title = title
     this.item_count = item_count
     this.delivery_date = delivery_date
-    this.renderWishLists()
+    // this.renderWishLists()
+    this.renderLists()
   }
 
   listHtml() {
@@ -12,79 +13,33 @@ class WishList {
     <a href="wish_lists/${this.id}"><h2 class="header">${this.title}</h2></a>
     <p>Item Count: ${this.item_count}</p>
     <p>Delivery Date: ${this.delivery_date}</p>
-    <button class="new_list" id="new_list">Use This Ready Wish List</button>
+    <button class="delete">DELETE THIS LIST</button>
     `
   }
 
-  renderWishLists() {
+  renderLists() {
+    // renderWishLists() {
     const listCard = document.createElement('div')
     listCard.classList.add('list-card')
     listCard.id = this.id
     listCard.innerHTML += this.listHtml()
-    preMadeList.appendChild(listCard)
+    // preMadeList.appendChild(listCard)
+    listsContainer.appendChild(listCard)
+    debugger
     listCard.addEventListener('click', e => {
-      // if (e.target.className.includes('new_list')) this.newList(e)
+      if (e.target.className.includes('delete')) this.deleteWishList(e)
     })
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-//    newListFormHtml(id, list_title) {
-//     return `
-//     <div data-id="${id}">
-//       <p>List Title: ${list_title}</p>
-//       <input type="text" name="name" id="item_name"placeholder="Name Your Item" />
-//       <input type="text" name="color" id="item_color" placeholder="What color is it?" />
-//       <input type="text" name="height" id="item_height" placeholder="How tall is it?" />
-//       <input type="text" name="weight" id="item_weight" placeholder="How much does it weigh?" />
-//       <input type="text" name="link" id="item_link" placeholder="Link to a picture of it" />
-//       <input type="text" name="description" id="item_description" placeholder="Write a description of the Wish" />
-//       <input type="text" name="price" id="item_price" placeholder="How much does it cost?" />
-//       <button class="add_item" id="add_item">Add Item To List</button>
-//     </div>
-//     `
-//   }
-
-//  renderNestedForm(id, title) {
-  
-//   const nestedForm = document.createElement('form')
- 
-//   nestedForm.classList.add('nested-form')
-//   nestedForm.id = this.id
-//   nestedForm.innerHTML += this.newListFormHtml(id, title)
-//   newWishList.appendChild(nestedForm)
-
-// }
-
-  // deleteWishList(e){
-  //   const id = parseInt(e.target.parentElement.id)
-  //   fetch(`http://localhost:3000/wish_lists/${id}`, {
-  //     method: 'DELETE'
-  //   })
-  //   .then(() => {
-  //     document.getElementById('your-list-card').removeChild(document.getElementById(id))
-  //   })
-  // }
+  deleteWishList(e){
+    debugger
+    const id = parseInt(e.target.parentElement.id)
+    fetch(`http://localhost:3000/wish_lists/${id}`, {
+      method: 'DELETE'
+    })
+    .then(() => {
+      document.getElementById('premade-list').removeChild(document.getElementById(id))
+    })
+  }
 
 }
