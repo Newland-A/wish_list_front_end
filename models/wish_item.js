@@ -24,10 +24,14 @@ class WishItem {
     <p>Description: ${this.description}</p>
     <p>Price: $${this.price}.00</p>
     <p>Wish list id: ${this.wish_list_id}</p>
-    <button class="add_item" id="add_item">Add Item To List</button>
+    <button class="edt_item" id="edit_item">Edit Item To List</button>
     `
   }
 
+  // renderItems() {
+  //   const listItemCard = document.getElementsById('wish-list-container')
+
+  // }
   renderItems(item_id) {
     // renderWishItems(item_id) {
     const itemCard = document.createElement('div')
@@ -35,11 +39,12 @@ class WishItem {
     itemCard.dataset.id = item_id
     itemCard.id = this.id
     itemCard.innerHTML += this.itemHTML()
-    itemsContainer.appendChild(itemCard)
-    // itemCard.addEventListener('click', e => {
-    //   if (e.target.className.includes('add_item')) this.addItem(e)
-    // })
+    listsContainer.appendChild(itemCard)
+  //   // itemCard.addEventListener('click', e => {
+  //   //   if (e.target.className.includes('add_item')) this.addItem(e)
+  //   // })
   }
+
 
   // yourListItemHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price) {
   //   return `

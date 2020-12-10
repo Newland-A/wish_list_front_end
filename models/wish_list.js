@@ -25,20 +25,20 @@ class WishList {
     listCard.innerHTML += this.listHtml()
     // preMadeList.appendChild(listCard)
     listsContainer.appendChild(listCard)
-    debugger
+    // debugger
     listCard.addEventListener('click', e => {
       if (e.target.className.includes('delete')) this.deleteWishList(e)
     })
   }
 
   deleteWishList(e){
-    debugger
+    // debugger
     const id = parseInt(e.target.parentElement.id)
     fetch(`http://localhost:3000/wish_lists/${id}`, {
       method: 'DELETE'
     })
     .then(() => {
-      document.getElementById('premade-list').removeChild(document.getElementById(id))
+      document.getElementById('wish-list-container').removeChild(document.getElementById(id))
     })
   }
 
