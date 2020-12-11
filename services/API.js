@@ -38,6 +38,7 @@ class API {
       document.getElementById('nested-form').addEventListener('submit', //API.addYourWishItems
       API.createItems
       )
+      document.getElementById('new-list-form').reset()
       document.getElementById('nested-form').reset()
       })
   }
