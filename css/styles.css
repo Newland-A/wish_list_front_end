@@ -5,8 +5,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url("https://i.pinimg.com/originals/91/5a/14/915a14fdbc67cf4b160a3932c19f1b4e.jpg");
-  background-repeat: repeat;
+  background-image: url("https://i.pinimg.com/originals/91/5a/14/915a14fdbc67cf4b160a3932c19f1b4e.jpg"), url('https://static.nashvillewraps.com/images/sku/1278285-XLARGE.jpg');
+  background-repeat: no-repeat, repeat;
   background-color: rgb(255, 255, 255);
   background-size: cover;
   background-position: center;
@@ -22,7 +22,6 @@ body {
   }
   
   h2 {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
