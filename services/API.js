@@ -86,14 +86,20 @@ static readItem() {
     .then( list_items => {
         // debugger
         const {id, name, color, height, weight, link, description, price, wish_list_id } = list_items
-        debugger
+        // debugger
         const title = document.getElementById('wish-title').innerText
         new WishItem(id, name, color, height, weight, link, description, price, wish_list_id, title)
         // debugger
-        renderYourItemList(item_name, item_color, item_height, item_weight, item_link, item_description, item_price, wish_list_id, title)
+        // renderYourItemList(item_name, item_color, item_height, item_weight, item_link, item_description, item_price, wish_list_id, title)
         
         document.getElementById('nested-form').reset()
         })  
+  }
+
+  static updateList() {
+    fetch('http://localhost:3000/wish_lists')
+    .then(resp => resp.json())
+    
   }
 
 }
