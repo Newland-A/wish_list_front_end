@@ -28,10 +28,6 @@ class WishItem {
     `
   }
 
-  // renderItems() {
-  //   const listItemCard = document.getElementsById('wish-list-container')
-
-  // }
   renderItems(item_id) {
     // renderWishItems(item_id) {
     const itemCard = document.createElement('div')
@@ -44,7 +40,6 @@ class WishItem {
   //   //   if (e.target.className.includes('add_item')) this.addItem(e)
   //   // })
   }
-
 
   // yourListItemHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price) {
   //   return `
