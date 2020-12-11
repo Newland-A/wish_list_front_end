@@ -2,16 +2,24 @@ body {
   /* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
   font-family: 'Satisfy', cursive;
   font-weight: 300;
+  font-size: x-large;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url("https://i.pinimg.com/originals/91/5a/14/915a14fdbc67cf4b160a3932c19f1b4e.jpg"), url('https://static.nashvillewraps.com/images/sku/1278285-XLARGE.jpg');
-  background-repeat: no-repeat, repeat;
-  background-color: rgb(255, 255, 255);
+  background-image: url('https://static.nashvillewraps.com/images/sku/1278285-XLARGE.jpg');
+  background-repeat: repeat;
+  background-color: rgb(255, 255, 255,0.75);
   background-size: cover;
   background-position: center;
   }
-  
+  #topDiv {
+    background-image: url("https://i.pinimg.com/originals/91/5a/14/915a14fdbc67cf4b160a3932c19f1b4e.jpg");
+  background-repeat: no-repeat;
+  background-color: rgb(255, 255, 255, 0.20);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 25px
+  }
   h1, h3 {
 
   display: flex;
@@ -31,16 +39,23 @@ body {
 
   #item-title {
     display: flex;
+    font-size: 20;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    color:  rgb(0, 0, 0);
+    color:  rgb(122, 0, 0);
   }
       
   #wish-list-container {
     width: 1279px;
     margin: auto;
     margin-top: 50px;
+    /* background-image: url('https://static.nashvillewraps.com/images/sku/1278285-XLARGE.jpg');
+    background-repeat: repeat;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    background-position: center; */
+    font-size: large;
   }
 
   /* #wish-items-container {
@@ -72,23 +87,23 @@ body {
   text-align: center;
   }
 
-  .list-card{
+  /* .list-card{
     float: right;
-    /* display: flex; */
+     display: flex; 
     flex-direction: column;
     justify-content: center; 
     width:250px;
-    height: 250px;
+    height: 350px;
     background-color: rgb(136, 1, 1);
     color: #000000;
     margin: 15px;
     text-align: center;
-  }
+  } */
 
   .item-card{
     float: left;
     width: 250px;
-    height: 450px;
+    height: 550px;
     background-color:  rgb(136, 1, 1);
     color: #000000;
     margin: 15px;
