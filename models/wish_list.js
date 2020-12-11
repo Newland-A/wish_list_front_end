@@ -8,14 +8,22 @@ class WishList {
     // this.renderLists()
   }
 
-  listHtml() {
-    return `
-    <a href="wish_lists/${this.id}"><h2 class="header">${this.title}</h2></a>
-    <p>Item Count: ${this.item_count}</p>
-    <p>Delivery Date: ${this.delivery_date}</p>
-    <button class="delete">DELETE THIS LIST</button>
-    `
-  }
+
+
+
+
+
+
+ // // All Working features that can be added for later feature of things
+  
+  // listHtml() {
+  //   return `
+  //   <a href="wish_lists/${this.id}"><h2 class="header">${this.title}</h2></a>
+  //   <p>Item Count: ${this.item_count}</p>
+  //   <p>Delivery Date: ${this.delivery_date}</p>
+  //   <button class="delete">DELETE THIS LIST</button>
+  //   `
+  // }
 
   // renderLists() {
   //   // renderWishLists() {
@@ -31,15 +39,15 @@ class WishList {
   //   })
   // }
 
-  deleteWishList(e){
-    // debugger
-    const id = parseInt(e.target.parentElement.id)
-    fetch(`http://localhost:3000/wish_lists/${id}`, {
-      method: 'DELETE'
-    })
-    .then(() => {
-      document.getElementById('wish-list-container').removeChild(document.getElementById(id))
-    })
-  }
+  // deleteWishList(e){
+  //   // debugger
+  //   const id = parseInt(e.target.parentElement.id)
+  //   fetch(`http://localhost:3000/wish_lists/${id}`, {
+  //     method: 'DELETE'
+  //   })
+  //   .then(() => {
+  //     document.getElementById('wish-list-container').removeChild(document.getElementById(id))
+  //   })
+  // }
 
 }
