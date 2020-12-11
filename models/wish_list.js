@@ -5,7 +5,7 @@ class WishList {
     this.item_count = item_count
     this.delivery_date = delivery_date
     // this.renderWishLists()
-    this.renderLists()
+    // this.renderLists()
   }
 
   listHtml() {
@@ -17,19 +17,19 @@ class WishList {
     `
   }
 
-  renderLists() {
-    // renderWishLists() {
-    const listCard = document.createElement('div')
-    listCard.classList.add('list-card')
-    listCard.id = this.id
-    listCard.innerHTML += this.listHtml()
-    // preMadeList.appendChild(listCard)
-    listsContainer.appendChild(listCard)
-    // debugger
-    listCard.addEventListener('click', e => {
-      if (e.target.className.includes('delete')) this.deleteWishList(e)
-    })
-  }
+  // renderLists() {
+  //   // renderWishLists() {
+  //   const listCard = document.createElement('div')
+  //   listCard.classList.add('list-card')
+  //   listCard.id = this.id
+  //   listCard.innerHTML += this.listHtml()
+  //   // preMadeList.appendChild(listCard)
+  //   listsContainer.appendChild(listCard)
+  //   // debugger
+  //   listCard.addEventListener('click', e => {
+  //     if (e.target.className.includes('delete')) this.deleteWishList(e)
+  //   })
+  // }
 
   deleteWishList(e){
     // debugger
