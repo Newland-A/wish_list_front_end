@@ -15,7 +15,7 @@ class WishItem {
 
   itemHTML() {
     return `
-    <a href="wish_items/${this.id}"><h2 class="header">${this.name}</h2></a>
+    <h2 class="header" id="${this.id}">${this.name}</h2>
     <img src="${this.link}" width="100" />
     <p>Color: ${this.color}</p>
     <p>Height: ${this.height} inchs </p>
@@ -24,22 +24,44 @@ class WishItem {
     <p>Description: ${this.description}</p>
     <p>Price: $${this.price}.00</p>
     <p>Wish list id: ${this.wish_list_id}</p>
-    <button class="edt_item" id="edit_item">Edit Item To List</button>
+    <!-- <button class="edit_item" id="edit_item">Edit Item To List</button> -->
+    <button class="delete">DELETE THIS LIST</button>
     `
   }
 
-  renderItems(item_id) {
+  renderItems() {
     // renderWishItems(item_id) {
     const itemCard = document.createElement('div')
     itemCard.classList.add('item-card')
-    itemCard.dataset.id = item_id
+    itemCard.dataset.id = this.id
     itemCard.id = this.id
     itemCard.innerHTML += this.itemHTML()
     listsContainer.appendChild(itemCard)
-  //   // itemCard.addEventListener('click', e => {
-  //   //   if (e.target.className.includes('add_item')) this.addItem(e)
-  //   // })
+    itemCard.addEventListener('click', e => {
+    //   if (e.target.className.includes('edit_item')) this.editItem(e)
+    // debugger
+        if (e.target.className.includes('delete')) this.deleteWishList(e)
+        if (e.target.className.includes('header'))
+        this.showSingleItem(e)
+    })
+    
   }
+
+  deleteWishList(e){
+      debugger
+      const id = parseInt(this.wish_list_id)
+      fetch(`http://localhost:3000/wish_lists/id`, {
+        method: 'DELETE'
+      })
+      .then(() => {
+        document.getElementById('wish-list-container').removeChild(document.getElementById(id))
+      })
+    }
+  
+showSingleItem(e) {
+document.getElementById('').remove()
+}
+  // // Working features that can be added for later things
 
   // yourListItemHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price) {
   //   return `
