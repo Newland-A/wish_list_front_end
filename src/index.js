@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded",function(){
   API.readList()
   API.readItem()
   
-  document.getElementById('new-list-form').addEventListener('submit', API.createConnectedListItem //API.createList
+  document.getElementById('new-list-form').addEventListener('submit', API.createList 
 )
 
 })
@@ -64,7 +64,7 @@ listsContainer.appendChild(wlh2)
 function nestedFormHtml(id, list_title) {
       return `
       
-        <p>Wish Title: ${list_title}</p>
+        <p>Wish Title: <span id='wish-title'>${list_title}</span></p>
         <input type="text" name="name" id="item_name"placeholder="Name Your Item" />
         <input type="text" name="color" id="item_color" placeholder="What color is it?" />
         <input type="text" name="height" id="item_height" placeholder="How tall is it?" />
@@ -181,25 +181,26 @@ function nestedFormHtml(id, list_title) {
 
 // // Your list Items
 
-// function yourListItemHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price) {
-//   return `
-//   <a href="wish_lists/${list_id}"><h2 class="list-header">${list_title}</h2></a>
-//   <p id="yl">Name: ${item_name}</p>
-//   <p id="yl">Color: ${item_color}</p>
-//   <p id="yl">Height: ${item_height}</p>
-//   <p id="yl">Weight: ${item_weight}</p>
-//   <o id="yl">Link: ${item_link}</p>
-//   <p id="yl">Description: ${item_description}</p>
-//   <p id="yl">Price: ${item_price}</p>
-//   <button class="delete">DELETE ME???</button>
-//   `
-// }
+function yourListItemHtml(list_id, item_name, item_color, item_height, item_weight, item_link, item_description, item_price, wish_list_id, title) {
+  return `
+  <a href="wish_lists/${list_id}"><h2 class="list-header">${title}</h2></a>
+  <p id="yl">Name: ${item_name}</p>
+  <p id="yl">Color: ${item_color}</p>
+  <p id="yl">Height: ${item_height}</p>
+  <p id="yl">Weight: ${item_weight}</p>
+  <o id="yl">Link: ${item_link}</p>
+  <p id="yl">Description: ${item_description}</p>
+  <p id="yl">Price: ${item_price}</p>
+  <button class="delete">DELETE ME???</button>
+  `
+}
 
-// function renderYourItemList() {
-//   const yourListCard = document.createElement('div')
-//   yourListCard.classList.add('your-list-card')
-//   yourListCard.id = "your-list-card"
-//   yourListCard.innerHTML += this.yourListItemHtml(list_id, list_title, item_name, item_color, item_height, item_weight, item_link, item_description, item_price)
-//   yourListContainer.appendChild(yourListCard)
+function renderYourItemList(list_id, item_name, item_color, item_height, item_weight, item_link, item_description, item_price, wish_list_id, title) {
+  const yourListCard = document.createElement('div')
+  yourListCard.classList.add('your-list-card')
+  yourListCard.id = "your-list-card"
+  yourListCard.innerHTML += this.yourListItemHtml(list_id, item_name, item_color, item_height, item_weight, item_link, item_description, item_price, wish_list_id, title)
+  listsContainer.appendChild(yourListCard)
   
-// }
+}
+
