@@ -16,6 +16,7 @@ const WISHITEM_URL = `${BASE_URL}/wish_items`
 const bodyTag = document.querySelector('body')
 const topDiv = document.createElement('div')
 topDiv.id = 'topDiv'
+topDiv.classList.add('topDiv')
 bodyTag.appendChild(topDiv)
 
 const santasUrl = './wish-item-img/santas_workshop.jpg'
@@ -52,31 +53,31 @@ formContainer.appendChild(form)
 
 // create container for form once created
 const listDiv = document.createElement('div')
-listDiv.id = 'wish-list-container'
+listDiv.id = 'wish_list_container'
 const nestListDiv = document.createElement('div')
 nestListDiv.id = 'single-item-div'
 listDiv.appendChild(nestListDiv)
 bodyTag.appendChild(listDiv)
-const listsContainer = document.getElementById('wish-list-container')
-
+// const listsContainer = document.getElementById('wish_list_container')
 // append title to list container
 let wlh2 = document.createElement('h2')
 wlh2.innerHTML += "Santa's Wish List"
-listsContainer.appendChild(wlh2)
+listDiv.appendChild(wlh2)
 
 // function to call to render nested form to the page
 function nestedFormHtml(id, list_title) {
       return `
       
         <p>Wish Title: <span id='wish-title'>${list_title}</span></p>
-        <input type="text" name="name" id="item_name"placeholder="Name Your Item" />
-        <input type="text" name="color" id="item_color" placeholder="What color is it?" />
-        <input type="text" name="height" id="item_height" placeholder="How tall is it?" />
-        <input type="text" name="weight" id="item_weight" placeholder="How much does it weigh?" />
-        <input type="text" name="link" id="item_link" placeholder="Link to a picture of it" />
-        <input type="text" name="description" id="item_description" placeholder="Write a description of the Wish" />
-        <input type="text" name="price" id="item_price" placeholder="How much does it cost?" />
+        <input type="text" name="name" id="item_name"placeholder="Name Your Item" /><br />
+        <input type="text" name="color" id="item_color" placeholder="What color is it?" /><br />
+        <input type="text" name="height" id="item_height" placeholder="How tall is it?" /><br />
+        <input type="text" name="weight" id="item_weight" placeholder="How much does it weigh?" /><br />
+        <input type="text" name="link" id="item_link" placeholder="Link to a picture of it" /><br />
+        <input type="text" name="description" id="item_description" placeholder="Write a description of the Wish" /><br />
+        <input type="text" name="price" id="item_price" placeholder="How much does it cost?" /><br />
         <button id="submit">Send Wish to Santa</button>
+        <br /><br />
       
       `
     }
@@ -93,93 +94,14 @@ function nestedFormHtml(id, list_title) {
   
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ORIGNINAL MVP BELOW
 
-// const itemsContainer = document.getElementById('wish-items-container')
-// const yourListContainer = document.getElementById('your-list-container')
- 
-// const personContainer = document.getElementById('person-container')
-
-
 // // Appended Elements
-
-// let createNew = document.createElement('h3')
-// createNew.innerHTML = "Create a New List"
-// personContainer.appendChild(createNew)
-  
-
-// let wih2 = document.createElement('h2')
-// wih2.id = "item-title"
-// wih2.innerHTML = "Here are some available wish items"
-// itemsContainer.appendChild(wih2)
-
-// let newWishList = document.getElementById('new-list-form')
-// let submitBtn = document.getElementById('submit')
-
-// const preMadeList = document.createElement('div')
-// preMadeList.id = "premade-list"
-// listsContainer.appendChild(preMadeList)
-
-
 
 // // Div element for your lists
 // // Yes the id needs to be here
 // // FUNCTIONS
 // // create function for the html 
-// function nestedFormHtml(id, list_title) {
-//     return `
-    
-//       <p>List Title: ${list_title}</p>
-//       <input type="text" name="name" id="item_name"placeholder="Name Your Item" />
-//       <input type="text" name="color" id="item_color" placeholder="What color is it?" />
-//       <input type="text" name="height" id="item_height" placeholder="How tall is it?" />
-//       <input type="text" name="weight" id="item_weight" placeholder="How much does it weigh?" />
-//       <input type="text" name="link" id="item_link" placeholder="Link to a picture of it" />
-//       <input type="text" name="description" id="item_description" placeholder="Write a description of the Wish" />
-//       <input type="text" name="price" id="item_price" placeholder="How much does it cost?" />
-//       <button id="submit">Add Item To List</button>
-    
-//     `
-//   }
-
-// function renderNestedForm(list_id, title) {
-  
-//   const nestedForm = document.createElement('form')
- 
-//   nestedForm.classList.add('nested-form')
-//   nestedForm.id = "nested-form"
-//   nestedForm.dataset.id = list_id
-//   nestedForm.innerHTML += this.nestedFormHtml(list_id, title)
-//   newWishList.appendChild(nestedForm)
-
-// }
 
 // // Your list Items
 
