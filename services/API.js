@@ -39,7 +39,7 @@ class API {
       API.createItems
       )
       document.getElementById('new-list-form').reset()
-      document.getElementById('nested-form').reset()
+      
       })
   }
 
@@ -97,10 +97,10 @@ static readItem() {
         })  
   }
 
-  static updateList() {
-    fetch('http://localhost:3000/wish_lists')
-    .then(resp => resp.json())
+  // static updateList() {
+  //   fetch('http://localhost:3000/wish_lists')
+  //   .then(resp => resp.json())
     
-  }
+  // }
 
 }
