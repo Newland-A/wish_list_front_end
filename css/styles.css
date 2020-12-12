@@ -8,18 +8,21 @@ body {
   justify-content: center;
   background-image: url('https://static.nashvillewraps.com/images/sku/1278285-XLARGE.jpg');
   background-repeat: repeat;
-  background-color: rgb(255, 255, 255,0.75);
+  background-color: rgb(255, 255, 255);
   background-size: cover;
   background-position: center;
   }
+
   #topDiv {
-    background-image: url("https://i.pinimg.com/originals/91/5a/14/915a14fdbc67cf4b160a3932c19f1b4e.jpg");
+  background-image: url("https://i.pinimg.com/originals/91/5a/14/915a14fdbc67cf4b160a3932c19f1b4e.jpg");
   background-repeat: no-repeat;
-  background-color: rgb(255, 255, 255, 0.20);
+  background-color: rgb(255, 255, 255, 0.75);
   background-size: cover;
   background-position: center;
-  margin-bottom: 25px
+  margin-bottom: 25px;
+  
   }
+
   h1, h3 {
 
   display: flex;
@@ -34,7 +37,8 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    color:  rgb(2, 2, 1);
+    color:  rgb(255, 0, 0);
+    font-size: 45px;
     }
 
   #item-title {
@@ -46,15 +50,15 @@ body {
     color:  rgb(122, 0, 0);
   }
       
-  #wish-list-container {
+  #wish_list_container {
     width: 1279px;
     margin: auto;
     margin-top: 50px;
-    /* background-image: url('https://static.nashvillewraps.com/images/sku/1278285-XLARGE.jpg');
+    background-image: url('https://www.morethanshipping.com/wp-content/uploads/2018/12/santa-north-pole-2019.jpg');
     background-repeat: repeat;
     background-color: rgb(255, 255, 255);
     background-size: cover;
-    background-position: center; */
+    background-position: center;
     font-size: large;
   }
 
@@ -75,9 +79,10 @@ body {
   }
 
   #new-list-container {
-    width: 250px;
+    width: 300px;
     margin: auto;
     margin-top: 50px;
+    font-weight: 300;
   }
 
   #new-list-form{
@@ -89,7 +94,7 @@ body {
 
   /* .list-card{
     float: right;
-     display: flex; 
+     
     flex-direction: column;
     justify-content: center; 
     width:250px;
@@ -100,15 +105,16 @@ body {
     text-align: center;
   } */
 
-  .item-card{
+  .item_card{
     float: left;
+    /* display: flex;  */
+    flex-direction: column;
+    justify-content: center; 
     width: 250px;
-    height: 550px;
+    height: 100%;
     background-color:  rgb(136, 1, 1);
     color: #000000;
     margin: 15px;
     text-align: center;
   }
-  .center-text {
-    text-align: center;
-  } 
+  
