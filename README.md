@@ -15,19 +15,16 @@ WishList is rails API back-end with a JavaScript, CSS, HTML front-end applicatio
 ## Installation
 To install Santa's Wish List, follow these steps:
 
-clone repository
-check gemfile for gem 'rack-cors'
+1. clone repository and connected repository in same dierectory
+2. check gemfile for gem 'rack-cors'
 check config/initializers/cors.rb for your origin acceptance
-bundle install 
-create, migrate and seed database
-run rails server
-run local JavaScript of your choice
+3. bundle install 
+4. create, migrate and seed database
+5. run rails server from back end folder
+6. run local JavaScript of your choice
 pr use npx reload -b
 
-## Using Wish List
-
-
-
+#
 ## Contributing
 To contribute to Santa's Wish List, follow these steps:
 
