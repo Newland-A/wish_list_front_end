@@ -2,8 +2,7 @@ document.addEventListener("DOMContentLoaded",function(){
   API.readList()
   API.readItem()
   
-  document.getElementById('new-list-form').addEventListener('submit', API.createList 
-)
+  document.getElementById('new-list-form').addEventListener('submit', API.createList )
 
 })
 
@@ -67,14 +66,14 @@ listDiv.appendChild(wlh2)
 // function to call to render nested form to the page
 function nestedFormHtml(id, list_title) {
       return `
-      
+      <div 
         <p>Wish Title: <span id='wish-title'>${list_title}</span></p>
         <input type="text" name="name" id="item_name"placeholder="Name Your Item" /><br />
         <input type="text" name="color" id="item_color" placeholder="What color is it?" /><br />
         <input type="text" name="height" id="item_height" placeholder="How tall is it?" /><br />
         <input type="text" name="weight" id="item_weight" placeholder="How much does it weigh?" /><br />
         <input type="text" name="link" id="item_link" placeholder="Link to a picture of it" /><br />
-        <input type="text" name="description" id="item_description" placeholder="Write a description of the Wish" /><br />
+        <textarea type="text" name="description" id="item_description" width="100" >Write a description of the Wish</textarea><br />
         <input type="text" name="price" id="item_price" placeholder="How much does it cost?" /><br />
         <button id="submit">Send Wish to Santa</button>
         <br /><br />
@@ -93,38 +92,3 @@ function nestedFormHtml(id, list_title) {
     formContainer.appendChild(nestedForm)
   
   }
-
-// ORIGNINAL MVP BELOW
-
-// // Appended Elements
-
-// // Div element for your lists
-// // Yes the id needs to be here
-// // FUNCTIONS
-// // create function for the html 
-
-// // Your list Items
-
-// function yourListItemHtml(list_id, item_name, item_color, item_height, item_weight, item_link, item_description, item_price, wish_list_id, title) {
-//   return `
-//   <a href="wish_lists/${list_id}"><h2 class="list-header">${title}</h2></a>
-//   <p id="yl">Name: ${item_name}</p>
-//   <p id="yl">Color: ${item_color}</p>
-//   <p id="yl">Height: ${item_height}</p>
-//   <p id="yl">Weight: ${item_weight}</p>
-//   <o id="yl">Link: ${item_link}</p>
-//   <p id="yl">Description: ${item_description}</p>
-//   <p id="yl">Price: ${item_price}</p>
-//   <button class="delete">DELETE ME???</button>
-//   `
-// }
-
-// function renderYourItemList(list_id, item_name, item_color, item_height, item_weight, item_link, item_description, item_price, wish_list_id, title) {
-//   const yourListCard = document.createElement('div')
-//   yourListCard.classList.add('your-list-card')
-//   yourListCard.id = "your-list-card"
-//   yourListCard.innerHTML += this.yourListItemHtml(list_id, item_name, item_color, item_height, item_weight, item_link, item_description, item_price, wish_list_id, title)
-//   listsContainer.appendChild(yourListCard)
-  
-// }
-
