@@ -23,23 +23,59 @@ body {
   
   }
 
-  h1, h3 {
+  h2, h3 {
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  color:  rgb(211, 214, 6);
+  color:  rgb(214, 6, 6);
   }
-  
-  h2 {
+
+  h1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color:  rgb(211, 214, 6);
+    font-size: 45px;
+  }
+
+  /* h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     color:  rgb(255, 0, 0);
     font-size: 45px;
+    } */
+
+    #wish-title {
+      display: flex;
+      font-size: 20;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      color:  rgb(221, 8, 8);
     }
+  #new-list-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  }
+
+  #wish_list_container {
+    width: 1279px;
+    margin: auto;
+    /* margin-top: 50px; */
+    background-image: url('https://www.morethanshipping.com/wp-content/uploads/2018/12/santa-north-pole-2019.jpg');
+    background-repeat: repeat;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    background-position: center;
+    font-size: large;
+  }
 
   #item-title {
     display: flex;
@@ -50,28 +86,9 @@ body {
     color:  rgb(122, 0, 0);
   }
       
-  #wish_list_container {
-    width: 1279px;
-    margin: auto;
-    margin-top: 50px;
-    background-image: url('https://www.morethanshipping.com/wp-content/uploads/2018/12/santa-north-pole-2019.jpg');
-    background-repeat: repeat;
-    background-color: rgb(255, 255, 255);
-    background-size: cover;
-    background-position: center;
-    font-size: large;
-  }
-
-  /* #wish-items-container {
-    width:1279px;
-    margin:auto;
-    margin-top:50px;
-    
-  } */
   #santas-image {
     width: 100%;
     height: 150px;
-    /* display: block; */
     margin: auto;
     justify-content: center;
     border-radius: 15px;
@@ -85,33 +102,13 @@ body {
     font-weight: 300;
   }
 
-  #new-list-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  }
-
-  /* .list-card{
-    float: right;
-     
-    flex-direction: column;
-    justify-content: center; 
-    width:250px;
-    height: 350px;
-    background-color: rgb(136, 1, 1);
-    color: #000000;
-    margin: 15px;
-    text-align: center;
-  } */
-
   .item_card{
     float: left;
     /* display: flex;  */
     flex-direction: column;
     justify-content: center; 
     width: 250px;
-    height: 100%;
+    height: 750px;
     background-color:  rgb(136, 1, 1);
     color: #000000;
     margin: 15px;
