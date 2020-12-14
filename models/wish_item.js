@@ -1,5 +1,5 @@
 class WishItem {
-  constructor(id, name, color, height, weight, link, description, price, wish_list_id){
+  constructor(id, name, color, height, weight, link, description, price, wish_list_id) {
     this.id = id
     this.name = name
     this.color = color
@@ -14,7 +14,8 @@ class WishItem {
 
   itemHTML() {
     return `
-    <h2 class="header" id="${this.id}">${this.name}</h2>
+
+    <h3 class="header" id="${this.id}">${this.name}</h3>
     <img src="${this.link}" width="100" />
     <p>Color: ${this.color}</p>
     <p>Height: ${this.height} inchs </p>
@@ -40,12 +41,11 @@ class WishItem {
       // debugger
     //   if (e.target.className.includes('edit_item')) this.editItem(e)
         if (e.target.className.includes('delete')) this.deleteWishList(e)
-        // if (e.target.className.includes('header')) this.showSingleItem(e)
     })
     
   }
 
-  deleteWishList(e){
+  deleteWishList(){
       // debugger
       const listId = this.wish_list_id
     fetch(`http://localhost:3000/wish_lists/${listId}`, {
@@ -54,7 +54,6 @@ class WishItem {
     .then(() => {
       // debugger
       document.getElementById('wish_list_container').removeChild(document.getElementById(`${listId}`))
-      // document.querySelector('.wish-list-container').removeChild(document.getElementById(id)) 
     })
   }
   
