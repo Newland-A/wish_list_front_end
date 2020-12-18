@@ -1,23 +1,18 @@
 class API {
 
-  // Wish List
-// fetching information Read
-  static readList() {
-    // static addList() {
+  static readList(){
+  
     fetch('http://localhost:3000/wish_lists')
     .then(resp => resp.json())
-    .then(wish_lists => {
-      wish_lists.forEach(wish_list => {
-        const { id, title, item_count, delivery_date } = wish_list
+    .then(wishLists => {
+      wishLists.forEach(wishList => {
+        const { id, title, item_count, delivery_date } = wishList
         new WishList(id, title, item_count, delivery_date )
       })
     })
   }
 
-// posting form to the dom and grabbing the attributes inputs, clearing form after submission
-
   static createList(e) {
-    // debugger
     e.preventDefault()
     let list = {
       'title': e.target.title.value,
@@ -30,24 +25,20 @@ class API {
       body: JSON.stringify(list)
     })
     .then(resp => resp.json())
-    .then(wish_lists => {
-      const { id, title} = wish_lists
+    .then(newLists => {
       // debugger
-      new WishList(id, title )
+      const { id, title } = newLists
+      new WishList(id, title)
+      
       renderNestedForm(id, title)
-      document.getElementById('nested-form').addEventListener('submit', API.createItems
-      )
+      // debugger
+      document.getElementById('nested-form').addEventListener('submit', API.createItems)
       document.getElementById('new-list-form').reset()
       
       })
-      .catch(error => {
-        error.message;
-      })
-      debugger
+    
   }
 
-// //  Wish Items
-// // fetching items
 static readItem() {
     fetch('http://localhost:3000/wish_items')
     .then(resp => resp.json())
@@ -58,9 +49,8 @@ static readItem() {
       })
     })
   } 
-// create item and rendering the created item
+
  static createItems(e) {
-    // debugger
     e.preventDefault()
     let list_item = {
         'name': e.target.name.value,
@@ -72,7 +62,6 @@ static readItem() {
         'price': e.target.price.value,
         'wish_list_id': e.target.dataset.id
     };
-    // debugger
     fetch(WISHITEM_URL, {
       method: 'POST',
       headers: {
@@ -82,19 +71,12 @@ static readItem() {
     })
     .then(resp => resp.json())
     .then( list_items => {
-        // debugger
         const {id, name, color, height, weight, link, description, price, wish_list_id } = list_items
-        // debugger
+      
         const title = document.getElementById('wish-title').innerText
         new WishItem(id, name, color, height, weight, link, description, price, wish_list_id, title)
         document.getElementById('nested-form').reset()
         })  
   }
-
-  // static updateList() {
-  //   fetch('http://localhost:3000/wish_lists')
-  //   .then(resp => resp.json())
-    
-  // }
 
 }
