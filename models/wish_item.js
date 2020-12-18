@@ -30,7 +30,6 @@ class WishItem {
   }
 
   renderItems() {
-    // debugger
     const itemCard = document.createElement('div')
     itemCard.classList.add('item_card')
     itemCard.dataset.id = this.id
@@ -38,7 +37,7 @@ class WishItem {
     itemCard.innerHTML += this.itemHTML()
     listDiv.appendChild(itemCard)
     itemCard.addEventListener('click', e => {
-      // debugger
+     
     //   if (e.target.className.includes('edit_item')) this.editItem(e)
         if (e.target.className.includes('delete')) this.deleteWishList(e)
     })
@@ -46,13 +45,11 @@ class WishItem {
   }
 
   deleteWishList(){
-      // debugger
       const listId = this.wish_list_id
     fetch(`http://localhost:3000/wish_lists/${listId}`, {
       method: 'DELETE'
     })
     .then(() => {
-      // debugger
       document.getElementById('wish_list_container').removeChild(document.getElementById(`${listId}`))
     })
   }
