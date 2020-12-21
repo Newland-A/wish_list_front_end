@@ -6,14 +6,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* background-image: url('https://static.nashvillewraps.com/images/sku/1278285-XLARGE.jpg');
+  background-image: url('https://static.nashvillewraps.com/images/sku/1278285-XLARGE.jpg');
   background-repeat: repeat;
   background-color: rgb(255, 255, 255);
   background-size: cover;
-  background-position: center; */
+  background-position: center;
   }
 
-  /* #topDiv {
+  #topDiv {
   background-image: url("https://i.pinimg.com/originals/91/5a/14/915a14fdbc67cf4b160a3932c19f1b4e.jpg");
   background-repeat: no-repeat;
   background-color: rgb(255, 255, 255, 0.75);
@@ -95,7 +95,6 @@ body {
 
   .item_card{
     float: left;
-   
     flex-direction: column;
     justify-content: center; 
     width: 250px;
@@ -105,4 +104,4 @@ body {
     margin: 15px;
     text-align: center;
   }
-   */
+  
