@@ -14,7 +14,7 @@ class WishItem {
 
   itemHTML() {
     return `
-
+   <!-- <h2>List Name ${WishList.title}</h2>-->
     <h3 class="header" id="${this.id}">${this.name}</h3>
     <img src="${this.link}" width="100" />
     <p>Color: ${this.color}</p>

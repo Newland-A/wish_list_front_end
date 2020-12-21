@@ -44,7 +44,7 @@ formContainer.appendChild(formH2)
 const form = document.createElement('form')
 form.id = 'new-list-form'
 form.innerHTML += `
-<input name='title' id="title-of-wish-list" placeholder="Name Your Wish List!"/>
+<input name='title' id="title" placeholder="Person's Name"/>
 <button id="submit">New Wishes</button>
 <br /><br />
 `
