@@ -11,52 +11,49 @@ class WishItem {
     this.wish_list_id = wish_list_id
     this.renderItems()
   }
-
-  itemHTML() {
+ 
+itemHTML() {
     return `
-   <!-- <h2>List Name ${WishList.title}</h2>-->
-    <h3 class="header" id="${this.id}">${this.name}</h3>
+    <h3 class="header">${this.name}</h3>
     <img src="${this.link}" width="100" />
-    <p>Color: ${this.color}</p>
-    <p>Height: ${this.height} inchs </p>
-    <p>Weight: ${this.weight} lbs</p>
-    <p>Link: ${this.link}</p>
+    
     <p>Description: ${this.description}</p>
     <p>Price: $${this.price}.00</p>
     <p>Wish list id: ${this.wish_list_id}</p>
-    <!-- <button class="edit_item" id="edit_item">Edit Item To List</button> -->
-    <button class="delete">DELETE THIS LIST</button><br /><br />
+    
+    <!-- <button class="delete">DELETE THIS ITEM</button><br /><br /> -->
+    <!--<p>Color: ${this.color}</p>
+    <p>Height: ${this.height} inchs </p>
+    <p>Weight: ${this.weight} lbs</p>
+    <p>Link: ${this.link}</p>-->
     `
   }
 
   renderItems() {
     const itemCard = document.createElement('div')
+    const selectList = document.getElementById('list_card')
     itemCard.classList.add('item_card')
-    itemCard.dataset.id = this.id
-    itemCard.id = this.id
+    itemCard.id = this.id  
     itemCard.innerHTML += this.itemHTML()
-    listDiv.appendChild(itemCard)
+    const deleteButton = document.createElement('button')
+    deleteButton.classList.add('delete')
+    deleteButton.id = this.id
+    deleteButton.innerText += 'Delete This Item Please'
+    itemCard.appendChild(deleteButton)
+    listCard.appendChild(itemCard)
     itemCard.addEventListener('click', e => {
-     
-    //   if (e.target.className.includes('edit_item')) this.editItem(e)
-        if (e.target.className.includes('delete')) this.deleteWishList(e)
+        if (e.target.className.includes('delete')) this.deleteWishItem()
     })
-    
   }
 
-  deleteWishList(){
-      const listId = this.wish_list_id
-    fetch(`http://localhost:3000/wish_lists/${listId}`, {
+  deleteWishItem(){
+    fetch(`http://localhost:3000/wish_items/${this.id}`, {
       method: 'DELETE'
     })
     .then(() => {
-      document.getElementById('wish_list_container').removeChild(document.getElementById(`${listId}`))
+      document.getElementById(`${this.id}`).parentNode.removeChild(document.getElementById(`${this.id}`))
     })
   }
-  
-  // showSingleItem(e) {
-  // document.getElementById('').remove()
-  // }
-  // // Working features that can be added for later things
+
 }
 
