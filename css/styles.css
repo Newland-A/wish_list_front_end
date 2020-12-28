@@ -6,14 +6,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url('https://static.nashvillewraps.com/images/sku/1278285-XLARGE.jpg');
+  /* background-image: url('https://static.nashvillewraps.com/images/sku/1278285-XLARGE.jpg');
   background-repeat: repeat;
   background-color: rgb(255, 255, 255);
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   }
 
-  #topDiv {
+#topDiv {
   background-image: url("https://i.pinimg.com/originals/91/5a/14/915a14fdbc67cf4b160a3932c19f1b4e.jpg");
   background-repeat: no-repeat;
   background-color: rgb(255, 255, 255, 0.75);
@@ -23,7 +23,7 @@ body {
   
   }
 
-  h2, h3 {
+  .new_list, .wlh2 {
 
   display: flex;
   flex-direction: column;
@@ -41,42 +41,6 @@ body {
     font-size: 45px;
   }
 
-  #wish-title {
-    display: flex;
-    font-size: 20;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    color:  rgb(221, 8, 8);
-  }
-
-  #new-list-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  }
-
-  #wish_list_container {
-    width: 1279px;
-    margin: auto;
-    background-image: url('https://www.morethanshipping.com/wp-content/uploads/2018/12/santa-north-pole-2019.jpg');
-    background-repeat: repeat;
-    background-color: rgb(255, 255, 255);
-    background-size: cover;
-    background-position: center;
-    font-size: large;
-  }
-
-  #item-title {
-    display: flex;
-    font-size: 20;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    color:  rgb(122, 0, 0);
-  }
-      
   #santas-image {
     width: 100%;
     height: 150px;
@@ -86,12 +50,92 @@ body {
     border: 20px solid rgb(196, 11, 11);
   }
 
-  #new-list-container {
-    width: 300px;
-    margin: auto;
-    margin-top: 50px;
-    font-weight: 300;
+  #new-list-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    }
+
+    #new-list-container {
+      width: 300px;
+      margin: auto;
+      margin-top: 50px;
+      font-weight: 300;
+    }
+    .list_cards {
+      width: 300px;
+      margin: auto;
+      justify-content: center;
+      margin-top: 15px;
+      /* margin-top: 50px; */
+      /* font-weight: 300; */
+    }
+    .item_card{
+      float: left;
+      flex-direction: column;
+      justify-content: center; 
+      width: 350px;
+      height: 575px;
+      background-color:  rgb(136, 1, 1);
+      border: 10px;
+      border-color: black;
+      /* color: #000000; */
+      
+      text-align: center;
+    }
+    #nested_form {
+      float: left;
+      flex-direction: column;
+      justify-content: center; 
+      width: 350px;
+      height: 450px;
+      background-color:  rgb(28, 1, 104);
+      color: #000000;
+      /* margin: 15px; */
+      text-align: center;
+    }
+    .list_title {
+    /* display: flex;
+    flex-direction: column; */
+    justify-content: center;
+    text-align: center;
+    font-size: 55px;
+    }
+    /* .list_cards {
+      width: 1279px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-image: url('https://www.morethanshipping.com/wp-content/uploads/2018/12/santa-north-pole-2019.jpg');
+      background-repeat: repeat;
+      background-color: rgb(255, 255, 255);
+      background-size: cover;
+      background-position: center;
+      /* font-size: large; */
+    } */
+/* 
+    .nested_form {
+      justify-content: center;
+    }
+
+  */ 
+/*
+ 
+
+
+
+  #item-title {
+    display: flex;
+    font-size: 20;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color:  rgb(122, 0, 0);
   }
+   
+
 
   .item_card{
     float: left;
@@ -104,4 +148,4 @@ body {
     margin: 15px;
     text-align: center;
   }
-  
+   */ 
